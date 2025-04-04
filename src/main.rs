@@ -20,23 +20,16 @@ use app::App;
 use color_eyre::Result;
 use event::{Event, EventHandler};
 use ratatui::{backend::CrosstermBackend, Terminal};
+use rodio::{OutputStream, Sink};
 use tui::Tui;
 use update::update;
 
-use std::fs::File;
-use std::io::BufReader;
-use std::time::Duration;
-use rodio::{Decoder, OutputStream, Sink};
-use rodio::source::{SineWave, Source};
-
 fn main() -> Result<()> {
-
     color_eyre::install()?;
- 
+
     let (_stream, stream_handle) = OutputStream::try_default().unwrap();
     let sink = Sink::try_new(&stream_handle).unwrap();
 
-   
     // Create an application.
     let mut app = App::new(sink);
 

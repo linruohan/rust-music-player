@@ -1,5 +1,3 @@
-use std::fs::ReadDir;
-use std::fs;
 use rodio::Sink;
 
 use crate::list::ContentList;
@@ -19,13 +17,14 @@ impl App {
     /// Constructs a new instance of [`App`].
     pub fn new(s: Sink) -> Self {
         App {
-         should_quit: false,
-         sink: s,
-         songs_list: ContentList::from_dir("/home/santo/Music"),
-         play_deque: VecDeque::new(),
-         now_playing: String::new(),
+            should_quit: false,
+            sink: s,
+            //  songs_list: ContentList::from_dir("/home/santo/Music"),
+            songs_list: ContentList::from_dir("C:\\Users\\Administrator\\Music"),
+            play_deque: VecDeque::new(),
+            now_playing: String::new(),
         }
-   }
+    }
 
     // Handles the tick event of the terminal.
     pub fn tick(&self) {}
@@ -45,6 +44,4 @@ impl App {
     pub fn add_play_deque(&mut self, s: String) {
         self.play_deque.push_back(s);
     }
-    
 }
-
