@@ -1,9 +1,10 @@
 # rust-music-player 
 
 A simple cli music player written in rust and ratatui
-
+## linux
 ![example](./assets/screen1.png)
-
+## windows
+![example](./assets/screen2.png)
 For now, you have to change the path in src/app.rs 
 
 ### Keys
